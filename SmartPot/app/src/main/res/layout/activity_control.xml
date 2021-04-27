@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/iotbackgroud"
+    tools:context=".ControlActivity">
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/labelControl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:fontFamily="@font/lato_bold"
+        android:text="System Control"
+        android:textColor="#1131E3"
+        android:textColorHighlight="#FFFFFF"
+        android:textSize="40sp"
+        android:textStyle="bold"
+
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="87dp" />
+
+
+    <Switch
+        android:id="@+id/switchLamp"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/labelControl"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="Lamp"
+        android:textColor="#1131E3"
+        android:textColorHighlight="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textOn="On"
+        android:textOff="Off"
+        app:showText="true"/>
+    <Switch
+        android:id="@+id/switchPump"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/switchLamp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Pump"
+        android:textColor="#1131E3"
+        android:textColorHighlight="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textOn="On"
+        android:textOff="Off"
+        app:showText="true"/>
+    <Switch
+        android:id="@+id/switchAuto"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/switchPump"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Automatic Control"
+        android:textColor="#1131E3"
+        android:textColorHighlight="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textOn="On"
+        android:textOff="Off"
+        app:showText="true"/>
+
+</RelativeLayout>

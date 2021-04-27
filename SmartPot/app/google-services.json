@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "260374709521",
+    "firebase_url": "https://fbtest-ad83f-default-rtdb.firebaseio.com",
+    "project_id": "fbtest-ad83f",
+    "storage_bucket": "fbtest-ad83f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260374709521:android:02948d83c3cdeb487038b0",
+        "android_client_info": {
+          "package_name": "com.project3.SmartPot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "260374709521-0m2oldf11tflq868p69lm0qmn63hd8fa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiskgj_IRZuz6BBzQMOryK6aaw0g4qMZE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "260374709521-0m2oldf11tflq868p69lm0qmn63hd8fa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
