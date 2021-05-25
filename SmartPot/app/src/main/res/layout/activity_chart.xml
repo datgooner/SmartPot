@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+
+    android:background="@drawable/iotbackgroud">
+
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:id="@+id/edtDateFrom"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="date"
+        android:fontFamily="@font/lato_bold"
+        android:hint="From"
+        android:textColor="#1131E3"
+        android:textColorHighlight="#FFFFFF"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:background="@drawable/edittext"
+        />
+    <EditText
+        android:id="@+id/edtDateTo"
+        android:layout_marginTop="10dp"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="date"
+        android:fontFamily="@font/lato_bold"
+        android:hint="To"
+        android:textColor="#1131E3"
+        android:textColorHighlight="#FFFFFF"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:background="@drawable/edittext"/>
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_marginTop="10dp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:textSize="30dp"
+        android:fontFamily="@font/lato_bold"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        />
+
+
+    <Button
+        android:id="@+id/btnDrawChart"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:text="Draw Chart"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edittext"
+
+        />
+    <ImageView
+        android:id="@+id/imgV1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+
+        android:layout_margin="10dp"
+        android:scaleType="fitCenter"
+        />
+
+</LinearLayout>

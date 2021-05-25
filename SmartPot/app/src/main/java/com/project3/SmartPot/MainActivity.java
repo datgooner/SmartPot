@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnShow, btnControl;
+    Button btnShow, btnControl,btnChart;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +25,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Switch control activity
                 startActivity(new Intent(MainActivity.this,ControlActivity.class));
+            }
+        });
+        btnChart =(Button) findViewById(R.id.btnChart);
+        btnChart.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //Switch control activity
+                startActivity(new Intent(MainActivity.this,ChartActivity.class));
             }
         });
     }

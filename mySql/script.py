@@ -2,6 +2,7 @@ import mysql.connector
 import pyrebase
 import time
 import matplotlib.pyplot as plt
+
 #initializing
 config = {
 	"apiKey": "AIzaSyCKWp_L1KUxG0gMMdnHz9s6PQRtjbjjNoA",
@@ -36,6 +37,7 @@ def getData():
 	val = (_humDHT, _soilMoist, _tempDHT)
 	mycursor.execute(sql, val)
 	mydb.commit()
+	print("get data complete")
 	print(mycursor.rowcount, "record inserted.")
 def drawFig():
 	sql1 = "select * from root_data where created_at > date_sub(now(), interval 1 week ) LIMIT 10"
@@ -74,19 +76,56 @@ def drawFig():
 	plt.ylabel("°C")
 	plt.plot(date,dataTemp,'o-')
 	plt.savefig('temperature.png')
-	
+	storage.child("fig/humidity.png").put("humidity.png")
+	storage.child("fig/soilM.png").put("soilM.png")
+	storage.child("fig/temperature.png").put("temperature.png")
+	print("draw fig complete")
+def drawFigWithDate():	
+	query = db.child("drawChart").get()
+	value = query.val()
+	if value != "none":
+			
+		params = value.split("@")
+			
+		def data(i):
+			switcher={
+				"Temperature":"tempDHT",
+				"Humidity":"humDHT",
+				"SoilM":'soilMoist',
+				}
+			return switcher.get(i,"*")
+			
+		sql2 = "select created_at,"+data(params[2])+" FROM `root_data` WHERE created_at BETWEEN DATE_ADD(STR_TO_DATE('"+params[0]+"','%d,%m,%Y'),INTERVAL -1 DAY) AND DATE_ADD(STR_TO_DATE('"+params[1]+"','%d,%m,%Y'),INTERVAL 1 DAY)"
+		mycursor.execute(sql2)
 
-#loop
-count = 10
+		myresult2 = mycursor.fetchall()
+		date = []
+		dataGet = []
+		for x in myresult2:
+			date.append(x[0])
+			dataGet.append(x[1])
+
+		plt.figure(figsize=(15,5))
+		plt.title(params[2])
+		plt.plot(date,dataGet,'o-')
+		plt.savefig('figByDate.png')
+		storage.child("fig/figByDate.png").put("figByDate.png")
+		db.child("drawChart").set("none")
+		print("draw fig by date complete")
+
+t1 = time.time() + 60
+getData()
+t2 = time.time() + 600
+drawFig()
+
 while True:
-	getData()
-	if count >= 20:
-		count = 0
-		drawFig()
-		storage.child("fig/humidity.png").put("humidity.png")
-		storage.child("fig/soilM.png").put("soilM.png")
-		storage.child("fig/temperature.png").put("temperature.png")
-		print("fig updated")
 	
-	count += 1
-	time.sleep(60)
+	drawFigWithDate()
+	if time.time() >= t1:
+		t1 = time.time() + 60
+		getData()
+		
+	if time.time() >= t2:
+		t2 = time.time() + 600
+		drawFig()
+		

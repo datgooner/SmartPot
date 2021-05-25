@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.project3.SmartPot">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo"
@@ -9,9 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.project3.SmartPot.ControlActivity"></activity>
-        <activity android:name="com.project3.SmartPot.ShowActivity" />
-        <activity android:name="com.project3.SmartPot.MainActivity">
+        <activity android:name=".ChartActivity"></activity>
+        <activity android:name=".ControlActivity" />
+        <activity android:name=".ShowActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
